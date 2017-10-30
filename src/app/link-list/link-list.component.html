@@ -1,0 +1,22 @@
+<h3>Links</h3>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of links | async">{{item.name}}, ({{item.url}}</li>
+</ul>
+<button class="btn btn-primary">Add new link</button>
+
+<h3>Systems</h3>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of systems | async">
+    <b>{{item.name}}</b>
+    <p>{{item.description}}
+    </p>
+    <button class="btn btn-danger btn-xs pull-right" (click)="deleteSystem(item)">delete</button>
+    <div class="clearfix"></div>
+  </li>
+</ul>
+<div class="row">
+  <div class="col-md-3">
+    <app-system-form (formSaved)="saveSystem($event)"></app-system-form>
+  </div>
+</div>
+
