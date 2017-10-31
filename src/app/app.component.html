@@ -1,5 +1,11 @@
 <app-home-main-navbar></app-home-main-navbar>
 
 <div class="container">
-  <router-outlet></router-outlet>
+
+  <!-- <router-outlet></router-outlet> -->
+  <div [hidden]='false' id="loading-text" class="text-center">
+    <span [class]="loadingTextColor"><i class="fa fa-spinner fa-spin"></i> be patient...</span>
+  </div>
+
 </div>
+

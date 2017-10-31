@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: snow;
+}
+
+.h-spacer {
+  height: 20px;
+}
+
+#loading-text {
+    margin-top: 40%;
+    height: 10%;
+    font-size: 2em;
+}
