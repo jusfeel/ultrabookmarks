@@ -24,7 +24,7 @@ export class LinkListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.links   = this.linkService.all();
+    this.links = this.linkService.all();
     // this.systems = this.systemService.all();
   }
 

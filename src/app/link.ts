@@ -2,7 +2,8 @@ export class Link {
   id: string;
   name: string;
   url: string;
-  keywords: string;
+  description: string;
+  tags: string;
   system: string;
   created_at: string;
 }
