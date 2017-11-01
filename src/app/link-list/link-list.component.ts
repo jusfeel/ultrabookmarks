@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Link } from '../link';
-import { System } from '../system';
+import { System } from '../system/system';
 
 import { LinkService } from '../link.service';
-import { SystemService } from '../system.service';
+import { SystemService } from '../system/system.service';
 
 @Component({
   selector: 'app-link-list',
