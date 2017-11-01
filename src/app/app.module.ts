@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeMainNavbarComponent } from './home-main-navbar/home-main-navbar.component';
 import { LinkListComponent } from './link-list/link-list.component';
 import { SystemModule } from './system/system.module';
+import { LinkFormComponent } from './link-form/link-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LinkListComponent,
-    HomeMainNavbarComponent
+    HomeMainNavbarComponent,
+    LinkFormComponent
   ],
   imports: [
     BrowserModule,
