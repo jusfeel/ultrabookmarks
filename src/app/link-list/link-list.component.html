@@ -16,6 +16,18 @@
         </button>Success!
       </div>
 
+        <div class="collapse" id="ccform" *ngIf="currentLink">
+          <div class="well">
+            <div class="row">
+              <div class="col-md-3">
+                <app-link-form [link]="currentLink" (cancel)="close()"></app-link-form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="mode != 'edit'">
+
         <div class="row">
           <div class="col-sm-6 col-sm-push-3">
             <div class="input-group">
@@ -30,7 +42,7 @@
         <div class="h-spacer">  </div>
         <!-- <br/> -->
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let link of links | async">
+          <li class="list-group-item" *ngFor="let link of links">
 
             <div><a href="{{link.url}}">{{link.name}}</a></div>
             <div class="text-muted">{{link.description}}</div>
@@ -43,10 +55,10 @@
               </button>
               <button
                 class="btn btn-primary btn-xs"
-                [attr.data-toggle]="'collapse'"
-                [attr.data-target]="'#' + link.id + '-edit'"
-                [attr.aria-expanded]="false"
-                [attr.aria-controls]="'#' + link.id + '-edit'">edit</button>
+                data-toggle="collapse"
+                data-target="#ccform"
+                aria-expanded="false"
+                aria-controls="collapseExample" (click)="select(link)">edit</button>
               <button class="btn btn-danger btn-xs">del</button>
             </div>
 
@@ -67,21 +79,10 @@
                 </div>
               </div>
             </div>
-
-            <div class="collapse" id="{{link.id}}-edit">
-              <div class="well">
-
-                <div class="row">
-                  <div class="col-md-3">
-                    <app-link-form [link]="link"></app-link-form>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
-
             </li>
           </ul>
-        </div>
+
+
+  </div>
+</div>
+

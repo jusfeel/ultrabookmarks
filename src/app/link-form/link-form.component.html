@@ -1,8 +1,8 @@
 <h1>Edit link</h1>
 {{link| json}}
-<form>
+<form action="/" method="GET" #linkForm="ngForm" novalidate>
   <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]="link.name" name="name" id="title" placeholder="Title" [value]="link.name">
+    <input type="text" class="form-control" [(ngModel)]="link.name" name="name" id="title" placeholder="Title" [value]="link.name" required #nameField="ngModel">
   </div>
   <div class="form-group has-error">
     <input type="text" class="form-control" id="url" placeholder="Url">
@@ -18,7 +18,16 @@
     <input type="text" class="form-control" id="tags" placeholder="tags">
     <div class="help-block">Use comma to seperate tags</div>
   </div>
-  <button type="submit" class="btn btn-primary  btn-xs disabled">
+  <button type="submit" class="btn btn-primary  btn-xs">
     Save <i class="fa fa-spinner fa-spin"></i></button>
-    <button type="submit" class="btn btn-default btn-xs">Cancel</button>
+    <button type="submit" class="btn btn-default btn-xs" (click)="cancelEdit()">Cancel</button>
   </form>
+
+invalid {{nameField.invalid}} <br/>
+touched {{nameField.touched}} <br/>
+dirty {{nameField.dirty}} <br/>
+pristine {{nameField.pristine}} <br/>
+{{nameField.errors | json}}
+
+
+

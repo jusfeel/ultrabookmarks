@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Link } from '../link';
 
 @Component({
   selector: 'app-link-form',
@@ -7,11 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LinkFormComponent implements OnInit {
 
-  @Input() link;
+  @Input() link: Link;
+  @Output() cancel = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  cancelEdit() {
+    this.cancel.emit();
   }
 
 }

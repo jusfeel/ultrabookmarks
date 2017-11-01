@@ -15,7 +15,9 @@ import { SystemService } from '../system/system.service';
 })
 export class LinkListComponent implements OnInit {
 
-  links:   Observable<Link[]>;
+  links:   Link[];
+  currentLink: Link;
+  mode: string = "view";
   systems: Observable<System[]>;
 
   constructor(
@@ -24,8 +26,20 @@ export class LinkListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.links = this.linkService.all();
+    this.linkService.all().subscribe(
+      (links : Link[]) => this.links = links
+      );
     // this.systems = this.systemService.all();
+  }
+
+  select(link: Link) : void {
+    this.mode = "edit";
+    this.currentLink = link;
+  }
+
+  close() : void {
+    this.currentLink = null;
+    this.mode = "view";
   }
 
   saveSystem($event: System): void {
