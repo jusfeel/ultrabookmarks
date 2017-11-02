@@ -10,6 +10,8 @@ import { LinkListComponent } from './link-list/link-list.component';
 import { SystemModule } from './system/system.module';
 import { LinkFormComponent } from './link-form/link-form.component';
 
+import { FlashMessagesModule } from 'angular2-flash-messages/module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { LinkFormComponent } from './link-form/link-form.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SystemModule
+    SystemModule,
+    FlashMessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

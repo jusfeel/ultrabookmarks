@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Link } from '../link';
 import { System } from '../system/system';
 
+import { FlashMessagesService } from 'angular2-flash-messages';
+
 import { LinkService } from '../link.service';
 import { SystemService } from '../system/system.service';
 
@@ -22,12 +24,23 @@ export class LinkListComponent implements OnInit {
 
   constructor(
     private linkService:   LinkService,
-    private systemService: SystemService
+    private systemService: SystemService,
+    private flasher: FlashMessagesService
     ) { }
 
   ngOnInit() {
     this.linkService.all().subscribe(
-      (links : Link[]) => this.links = links
+      (links : Link[]) => this.links = links,
+      error => {
+
+        console.error("fail error", error);
+
+        this.flasher.show(error,{
+                                  cssClass: 'flash-message alert-danger',
+                                  timeout: 15000
+                                });
+
+      }
       );
     // this.systems = this.systemService.all();
   }

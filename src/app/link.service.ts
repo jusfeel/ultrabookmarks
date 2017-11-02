@@ -63,6 +63,7 @@ export class LinkService {
   }
 
   private handleError(error: Response | any) {
+    console.log("error", error);
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -74,7 +75,7 @@ export class LinkService {
 
     }
 
-    console.error(errMsg);
+    console.error("errMsg:", errMsg);
 
     return Observable.throw(errMsg);
   }
